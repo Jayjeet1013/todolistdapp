@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "13.1.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "web3modal": "^1.9.10"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
@@ -24,9 +25,7 @@
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
     "chai": "^4.2.0",
-    "eslint": "8.30.0",
-    "eslint-config-next": "13.1.0",
-    "ethers": "^5.4.7",
+    "ethers": "^5.7.2",
     "hardhat": "^2.9.9",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.7.21",
