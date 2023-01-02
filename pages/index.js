@@ -12,6 +12,8 @@ import Loading from "../loding.gif";
 import Data from "../components/Data";
 
 const Home = () => {
+  const [message, setMessage] = useState('')
+
   const {  checkIfWalletIsConnect,
     connectWallet,
     getToDoList,
@@ -22,8 +24,10 @@ const Home = () => {
     allToDoList,
     myList,
     allAddress,}= useContext(ToDoListContext);
+    
   useEffect(()=>{
   checkIfWalletIsConnect();
+  getToDoList();
   },[]);
 
   return (
@@ -38,7 +42,41 @@ const Home = () => {
        )}
      </div>
    </div>
+   <div className={Style.home_box}>
+      <div className={Style.home_completed}>
+       <h2>To Do History List</h2>
+       <div>
+        {myList.map((el,i)=>(
+          <div className={Style.home_completed_list}>
+             <MdVerified className={Style.iconColor}/>
+             <p>{el.slice(0,30)}..</p>
+          </div>
+        ))}
+       </div>
+      </div>
+      <div className={Style.home_create}>
+         <div className={Style.home_create_box}>
+           <h2>Create BlockChain ToDoList</h2>
+           <div className={Style.home_create_input}>
+            <input type='Text' placeholder='Enter YOur TOdo' onChange={(e) => setMessage(e.target.value)}/>
+            {currentAccount ? (
 
+            <RiSendPlaneFill className={Style.iconBlack} onClick={() => toDoList(message)}/>
+             
+            ):(
+              <RiSendPlaneFill 
+              className={Style.iconBlack}
+              onClick={() => connectWallet()} />
+            )} 
+           </div>
+           <Data
+            allToDoList={allToDoList}
+            allAddress={allAddress}
+            myList={myList}
+           />
+         </div>
+      </div>
+   </div>
    </div>
   )
 }
