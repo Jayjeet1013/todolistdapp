@@ -1,16 +1,14 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 
-//internal import
-import { ToDoListProvider } from '../context/ ToDolistApp'
+//INTERNAL IMPORT
+import { VotingProvider } from "../context/ToDoList";
 
-const MyApp=({ Component, pageProps })=> (
-  <ToDoListProvider>
-  <div>
-       <Component {...pageProps} />
-  </div>
- 
-  </ToDoListProvider>
+const MyApp = ({ Component, pageProps }) => (
+  <VotingProvider>
+    <div>
+      <Component {...pageProps} />
+    </div>
+  </VotingProvider>
+);
 
-)
-
-export default MyApp
+export default MyApp;
